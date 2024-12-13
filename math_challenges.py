@@ -1,4 +1,5 @@
 import random
+import time
 
 def factorial(n):
     result = 1
@@ -8,7 +9,10 @@ def factorial(n):
 
 def math_challenge_factorial():
     number = random.randint(1, 10)
-    print(f"Math Challenge: Calculate the factorial of {number}.")
+    print("Welcome to the factorial challenge")
+    print("selecting number ...")
+    time.sleep(1)
+    print(f"Calculate the factorial of {number}.")
     player_answer = int(input("Your answer: "))
     correct_answer = factorial(number)
 
@@ -22,8 +26,8 @@ def math_challenge_factorial():
 def is_prime(n):
     if n <= 1:
         return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
+    for i in range(2, int(n**0.5) + 1):   #en gros ici ça fait entre 2 (pr éviter 1) jusqu'a la racine de n +1 (car python)
+        if n % i == 0:             #check diviseur
             return False
     return True
 
@@ -38,12 +42,12 @@ def nearest_prime(n):
         w -= 1
         yw += 1
     if yw < yn :
-        return w
+        return (w, 0)
     elif yn == yw:
-        return f"{n}, {w}" #la il faut mettre les 2 pr que ça marche a corriger plus tard pr que le joueur n'aie qu'a mettre qi'un des 1
+        return (n, w) #retun les 2 (avec un tuple)
         #cas du 11
     else :
-        return n
+        return (n, 0)
 
 
 
@@ -52,20 +56,44 @@ def math_challenge_prime():
     while is_prime(number) == True :
         number = random.randint(10, 20)
 
-    print(f"Math Challenge: Find the nearest prime number to {number}.")
+    print("Welcome to the prime number challenge")
+    time.sleep(0.5)
+    print(f"Find the nearest prime number to {number}.")
     player_answer = int(input("Your answer: "))
-    correct_answer = nearest_prime(number)
+    correct_answers = nearest_prime(number)
 
-    if player_answer == correct_answer:
-        print("Correct! You win a key.(faire le retun key+1)")
-        return True #donne la clé (a faire)
-    else:
-        print(f"Wrong! The correct answer was {correct_answer}.")
-        return False
+    if correct_answers[1] == 0:
+        correct_answer = correct_answers[0]
+        if player_answer == correct_answer:
+            print("Correct! You win a key.(faire le retun key+1)")
+            return True
+        else :
+            print(f"Wrong! The correct answer was {correct_answer}.")
+            return False
+    else :
+        if player_answer == correct_answers[1]:
+            print("Correct! You win a key.(faire le retun key+1)")
+            return True
+        elif player_answer == correct_answers[0]:
+            print("Correct! You win a key.(faire le retun key+1)")
+            return True
+        else :
+            print(f"Wrong! The correct answer was {correct_answers[0]} or {correct_answers[1]}.")
+            return False
+
+
+
+
 
 def math_roulette_challenge():
     numbers = [random.randint(1, 20) for _ in range(5)]
     operation = random.choice(['+', '-', '*'])
+
+    print("welcome to the math roulette game")    #expliquer les regles
+    print("rolling the barrel ...")
+    time.sleep(1)                   #animation
+    print("selecting operation ...")
+    time.sleep(0.5)
 
     if operation == '+':
         correct_answer = sum(numbers)
@@ -90,7 +118,10 @@ def math_roulette_challenge():
 
         return True #donne la clé
     else:
+        print("BANG !")        #BANG !"
+        time.sleep(1)
         print(f"Wrong answer! The correct answer was {correct_answer}.")
+
         return False
 
 def math_challenge():
