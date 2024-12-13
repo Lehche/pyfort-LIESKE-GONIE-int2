@@ -33,19 +33,19 @@ def is_prime(n):
 
 def nearest_prime(n):
     w = n
-    yn = 0    # compteurs
-    yw = 0
-    while not is_prime(n):
+    a = True
+    while (a == True):
         n += 1
-        yn += 1
-    while not is_prime(w):
         w -= 1
-        yw += 1
-    if yw < yn :
-        return (w, 0)
-    elif yn == yw:
+        if is_prime(n) or is_prime(w):
+            a = False
+
+    if is_prime(n)== True and is_prime(w)== True:
         return (n, w) #retun les 2 (avec un tuple)
         #cas du 11
+    elif is_prime(w)== True:
+        return (w, 0)
+
     else :
         return (n, 0)
 
@@ -128,5 +128,3 @@ def math_challenge():
     challenges = [math_challenge_factorial, math_challenge_prime, math_roulette_challenge]
     challenge = random.choice(challenges)
     return challenge()
-
-math_challenge()
