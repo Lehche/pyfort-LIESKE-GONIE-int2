@@ -13,12 +13,17 @@ def math_challenge_factorial():
     print("selecting number ...")
     time.sleep(1)
     print(f"Calculate the factorial of {number}.")
-    player_answer = int(input("Your answer: "))
+    while True:
+        try:
+            player_answer = int(input("Your answer: "))
+            break                       #failsafe au cas ou
+        except ValueError:
+            print("Invalid input please enter an integer")
     correct_answer = factorial(number)
 
     if player_answer == correct_answer:
         print("Correct! You win a key.(faire le retun key+1)")
-        return True #donne la clé (a faire)
+        return True
     else:
         print(f"Wrong! The correct answer was {correct_answer}.")
         return False
@@ -33,12 +38,11 @@ def is_prime(n):
 
 def nearest_prime(n):
     w = n
-    a = True
-    while (a == True):
+    while True:
         n += 1
         w -= 1
         if is_prime(n) or is_prime(w):
-            a = False
+            break
 
     if is_prime(n)== True and is_prime(w)== True:
         return (n, w) #retun les 2 (avec un tuple)
@@ -59,7 +63,12 @@ def math_challenge_prime():
     print("Welcome to the prime number challenge")
     time.sleep(0.5)
     print(f"Find the nearest prime number to {number}.")
-    player_answer = int(input("Your answer: "))
+    while True:
+        try:
+            player_answer = int(input("Your answer: "))
+            break
+        except ValueError:                      #anti erreur (bonus)
+            print("Invalid input please enter an integer")
     correct_answers = nearest_prime(number)
 
     if correct_answers[1] == 0:
@@ -87,7 +96,7 @@ def math_challenge_prime():
 
 def math_roulette_challenge():
     numbers = [random.randint(1, 20) for _ in range(5)]
-    operation = random.choice(['+', '-', '*'])
+    operation = random.randint(0, 2)
 
     print("welcome to the math roulette game")    #expliquer les regles
     print("rolling the barrel ...")
@@ -95,10 +104,10 @@ def math_roulette_challenge():
     print("selecting operation ...")
     time.sleep(0.5)
 
-    if operation == '+':
+    if operation == '0':
         correct_answer = sum(numbers)
         operation_name = "addition"
-    elif operation == '-':
+    elif operation == '1':
         correct_answer = numbers[0]
         for num in numbers[1:]:
             correct_answer -= num
@@ -111,7 +120,13 @@ def math_roulette_challenge():
 
     print(f"Numbers on the roulette: {numbers}")
     print(f"Calculate the result by combining these numbers with {operation_name}.")
-    player_answer = int(input("Your answer: "))
+
+    while True:
+        try:
+            player_answer = int(input("Your answer: "))
+            break
+        except ValueError:
+            print("Invalid input please enter an integer")
 
     if player_answer == correct_answer:
         print("Correct answer! You've won a key.(faire le retun key+1)")
