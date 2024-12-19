@@ -38,11 +38,11 @@ def is_prime(n):
 
 def nearest_prime(n):
     w = n
-    while True:
+    n += 1
+    w -= 1
+    while not( is_prime(n) or is_prime(w)):
         n += 1
         w -= 1
-        if is_prime(n) or is_prime(w):
-            break
 
     if is_prime(n)== True and is_prime(w)== True:
         return (n, w) #retun les 2 (avec un tuple)
