@@ -37,7 +37,5 @@ def treasure_room(file):
     if answer_correct:
         print("Congratulations! You guessed the code word correctly.")
         #felindra tete de tigre
-    else:
-        print(f"You failed. The correct code word was: {code_word}")
 
 treasure_room("TRClues.json")
