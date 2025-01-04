@@ -1,7 +1,6 @@
 import json
 import random
 
-
 def load_clues(file):
     with open(file, "r") as f:
         clues = json.load(f)
@@ -41,3 +40,4 @@ def treasure_room(file):
         #felindra tete de tigre
 
 
+Treasure = treasure_room("DATA/TRClues.json")

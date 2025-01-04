@@ -28,7 +28,7 @@ def game(): #function that launches the game just have to execute it
         elif Challenge == 2:
             Won = chance_challenge()
         elif Challenge == 3:
-            Won = pere_fouras_riddles("PFRiddle.json")
+            Won = pere_fouras_riddles("DATA/PFRiddle.json")
 
         if Won == True :
             Keys += 1 #faire ajouter les clés aux joueur, mettre la boucle des challenges
@@ -40,7 +40,7 @@ def game(): #function that launches the game just have to execute it
     
     #final stage
     if Keys > 2  : #a retirer
-        if treasure_room("TRClues.json") == True :
+        if treasure_room("DATA/TRClues.json") == True :
             print("\n", "The Game is over congrats you won !")
             print("The End")
         else :
