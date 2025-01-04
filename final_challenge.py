@@ -33,9 +33,11 @@ def treasure_room(file):
                 print(f"Hint: {clues[-(4 - attempts)]}")
             else:
                 print(f"You failed. The correct code word was: {code_word}")
+                return False
 
     if answer_correct:
         print("Congratulations! You guessed the code word correctly.")
+        return True
         #felindra tete de tigre
 
-treasure_room("TRClues.json")
+

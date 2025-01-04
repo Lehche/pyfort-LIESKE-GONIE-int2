@@ -1,8 +1,9 @@
-from bato import battleship_game
-from fune import math_challenge
-from luck import chanve_challenge
-from utility import introduction, compose_equipe, challenges_menu, choose_player
-
+from logical_challenges import battleship_game
+from math_challenges import math_challenge
+from chance_challenges import chance_challenge
+from pere_fouras_challenge import pere_fouras_riddles
+from  utility_functions import introduction, compose_equipe, challenges_menu, choose_player
+from final_challenge import treasure_room
 
 def game():
     #introduction and team composition
@@ -20,9 +21,9 @@ def game():
     elif Challenge == 1:
         Won = battleship_game()
     elif Challenge == 2:
-        Won = chanve_challenge()
+        Won = chance_challenge()
     elif Challenge == 3:
-        #Won = pere_fouras_riddles(file)
+        Won = pere_fouras_riddles("PFRiddle.json")
 
     if Won == True :
         Keys += 1
@@ -32,4 +33,12 @@ def game():
 
     
     #final stage
-    
+    if treasure_room("TRClues.json") == True :
+        print("\n", "The Game is over congrats you won !")
+        print(f"number of keys obtained : {Keys}")
+    else :
+        print("\n", "The Game is over but you lost")
+        print(f"number of keys obtained : {Keys}")
+        print("fortunatly you all get the consolation prize witch is a roomba robot aspirator and 2 week of spotify premium !")
+
+game()
