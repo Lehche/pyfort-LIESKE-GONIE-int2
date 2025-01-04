@@ -28,7 +28,7 @@ def math_challenge_factorial(): #factorial challenge, execute the challenge and 
 
     #checks if the answer is True/False and return the result
     if player_answer == correct_answer:
-        print("Correct! You win a key.(faire le retun key+1)")
+        print("Correct! You win a key.")
         return True
     else:
         print(f"Wrong! The correct answer was {correct_answer}.")
@@ -89,17 +89,17 @@ def math_challenge_prime(): #prime challenge function ,takes no input, launches 
     if correct_answers[1] == 0:
         correct_answer = correct_answers[0]
         if player_answer == correct_answer:
-            print("Correct! You win a key.(faire le retun key+1)")
+            print("Correct! You win a key.")
             return True
         else :
             print(f"Wrong! The correct answer was {correct_answer}.")
             return False
     else :
         if player_answer == correct_answers[1]:
-            print("Correct! You win a key.(faire le retun key+1)")
+            print("Correct! You win a key.")
             return True
         elif player_answer == correct_answers[0]:
-            print("Correct! You win a key.(faire le retun key+1)")
+            print("Correct! You win a key.")
             return True
         else :
             print(f"Wrong! The correct answer was {correct_answers[0]} or {correct_answers[1]}.")
