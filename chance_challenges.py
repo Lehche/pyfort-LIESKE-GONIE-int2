@@ -62,6 +62,6 @@ def roll_dice_game():
     print("No player scored a 6 after three tries. It's a draw.")
 
 def chance_challenge():
-    challenges = [shell_game, rollin_dice_game]
+    challenges = [shell_game, roll_dice_game]
     challenge = random.choice(challenges)
     return challenge()
