@@ -18,9 +18,9 @@ def game(): #function that launches the game just have to execute it
     #event loop
     while Keys < 3:
         Challenge = challenges_menu()
-        Player = ListOfPlayers[choose_player(ListOfPlayers)]  #Player : integer(index)
+        Player = choose_player(ListOfPlayers)  #Player : index
 
-        print(f"{Player["name"]} it is your turn!")
+        print(f"{ListOfPlayers[Player]['name']} it is your turn!")
         if Challenge == 0 :
             Won = math_challenge()
         elif Challenge == 1:

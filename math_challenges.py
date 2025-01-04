@@ -148,7 +148,7 @@ def math_roulette_challenge():  #math toulette challenge, no input, launches the
 
     #check if the answer is true/false and return that
     if player_answer == correct_answer:
-        print("Correct answer! You've won a key.(faire le retun key+1)")
+        print("Correct answer! You've won a key.")
 
         return True #donne la clé
     else:
@@ -158,7 +158,7 @@ def math_roulette_challenge():  #math toulette challenge, no input, launches the
 
         return False
 
-def math_challenge(): #select randomly a challenge among all the math challenges and execute it (no input)
+def math_challenge(): #select randomly a challenge among all the math challenges and execute it(with the return) (no input)
     challenges = [math_challenge_factorial, math_challenge_prime, math_roulette_challenge]
     challenge = random.choice(challenges)
-    #return challenge()
+    return challenge()
