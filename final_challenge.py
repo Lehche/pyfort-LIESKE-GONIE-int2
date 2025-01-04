@@ -39,5 +39,3 @@ def treasure_room(file):
         return True
         #felindra tete de tigre
 
-
-Treasure = treasure_room("DATA/TRClues.json")
