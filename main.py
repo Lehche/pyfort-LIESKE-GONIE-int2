@@ -1,3 +1,7 @@
+#this is the main file
+#here there is : the executor of the code and the game function
+#this file launch the code
+
 from logical_challenges import battleship_game
 from math_challenges import math_challenge
 from chance_challenges import chance_challenge
@@ -5,7 +9,7 @@ from pere_fouras_challenge import pere_fouras_riddles
 from  utility_functions import introduction, compose_equipe, challenges_menu, choose_player
 from final_challenge import treasure_room
 
-def game():
+def game(): #function that launches the game just have to execute it
     #introduction and team composition
     introduction()
     ListOfPlayers = compose_equipe()
@@ -13,9 +17,9 @@ def game():
 
     #event loop
     Challenge = challenges_menu()
-    Player = choose_player(ListOfPlayers)  #met son prenom uniquement
+    Player = ListOfPlayers[choose_player(ListOfPlayers)]  #met son prenom uniquement
 
-    print(f"{Player} it is your turn!")
+    print(f"{Player["name"]} it is your turn!")
     if Challenge == 0 :
         Won = math_challenge()
     elif Challenge == 1:
@@ -26,7 +30,7 @@ def game():
         Won = pere_fouras_riddles("PFRiddle.json")
 
     if Won == True :
-        Keys += 1
+        Keys += 1 #faire ajouter les clés aux joueur, mettre la boucle des challenges
         print(f"One more Key for your team, you have {Keys} Keys")
     else:
         print(f"No keys for you this time, you have {Keys} Keys")
