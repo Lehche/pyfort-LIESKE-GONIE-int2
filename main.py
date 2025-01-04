@@ -16,33 +16,36 @@ def game(): #function that launches the game just have to execute it
     Keys = 0
 
     #event loop
-    Challenge = challenges_menu()
-    Player = ListOfPlayers[choose_player(ListOfPlayers)]  #met son prenom uniquement
+    while Keys < 3:
+        Challenge = challenges_menu()
+        Player = ListOfPlayers[choose_player(ListOfPlayers)]  #Player : integer(index)
 
-    print(f"{Player["name"]} it is your turn!")
-    if Challenge == 0 :
-        Won = math_challenge()
-    elif Challenge == 1:
-        Won = battleship_game()
-    elif Challenge == 2:
-        Won = chance_challenge()
-    elif Challenge == 3:
-        Won = pere_fouras_riddles("PFRiddle.json")
+        print(f"{Player["name"]} it is your turn!")
+        if Challenge == 0 :
+            Won = math_challenge()
+        elif Challenge == 1:
+            Won = battleship_game()
+        elif Challenge == 2:
+            Won = chance_challenge()
+        elif Challenge == 3:
+            Won = pere_fouras_riddles("PFRiddle.json")
 
-    if Won == True :
-        Keys += 1 #faire ajouter les clés aux joueur, mettre la boucle des challenges
-        print(f"One more Key for your team, you have {Keys} Keys")
-    else:
-        print(f"No keys for you this time, you have {Keys} Keys")
+        if Won == True :
+            Keys += 1 #faire ajouter les clés aux joueur, mettre la boucle des challenges
+            ListOfPlayers[Player]["keys_wons"] += 1
+            print(f"One more Key for your team, you have {Keys} Keys")
+        else:
+            print(f"No keys for you this time, you have {Keys} Keys")
 
     
     #final stage
-    if treasure_room("TRClues.json") == True :
-        print("\n", "The Game is over congrats you won !")
-        print(f"number of keys obtained : {Keys}")
-    else :
-        print("\n", "The Game is over but you lost")
-        print(f"number of keys obtained : {Keys}")
-        print("fortunatly you all get the consolation prize witch is a roomba robot aspirator and 2 week of spotify premium !")
+    if Keys > 2  : #a retirer
+        if treasure_room("TRClues.json") == True :
+            print("\n", "The Game is over congrats you won !")
+            print("The End")
+        else :
+            print("\n", "The Game is over but you lost")
+            print("The End")
+            print("fortunatly you all get the consolation prize witch is a roomba robot aspirator and 2 week of spotify premium !")
 
-game()
+game() #launches the game
