@@ -3,6 +3,7 @@
 #this file launch the code
 import time
 
+
 from logical_challenges import battleship_game
 from math_challenges import math_challenge
 from chance_challenges import chance_challenge
@@ -19,17 +20,27 @@ def game(): #function that launches the game just have to execute it
     #event loop
     while Keys < 3:
         Challenge = challenges_menu()
-        Player = choose_player(ListOfPlayers)  #Player : index
+        Player = choose_player(ListOfPlayers)#Player : index#
+        Tries = {"Math challenges": 0, "Logic challenges": 0, "Chance challenges": 0, "Fourras riddles": 0}
+        attempts = 0
 
         print(f"{ListOfPlayers[Player]['name']} it is your turn!")
         if Challenge == 0 :
             Won = math_challenge()
+            attempts += 1
+            Tries["Math challenges"] += 1
         elif Challenge == 1:
             Won = battleship_game()
+            attempts += 1
+            Tries["Logic challenges"] += 1
         elif Challenge == 2:
+            attempts += 1
             Won = chance_challenge()
+            Tries["Chance challenges"] += 1
         elif Challenge == 3:
+            attempts += 1
             Won = pere_fouras_riddles("DATA/PFRiddles.json")
+            Tries["Fourras riddles"] += 1
 
         if Won == True :
             Keys += 1 #faire ajouter les clés aux joueur, mettre la boucle des challenges
@@ -51,4 +62,4 @@ def game(): #function that launches the game just have to execute it
             print("The End")
             print("fortunatly you all get the consolation prize witch is a roomba robot aspirator and 2 week of spotify premium !")
 
-game() #launches the game
+    save_game(ListOfPlayers, Keys, Tries, attempts)
