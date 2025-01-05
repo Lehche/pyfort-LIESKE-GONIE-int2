@@ -1,6 +1,7 @@
 #this is the main file
 #here there is : the executor of the code and the game function
 #this file launch the code
+import time
 
 from logical_challenges import battleship_game
 from math_challenges import math_challenge
@@ -36,6 +37,8 @@ def game(): #function that launches the game just have to execute it
             print(f"One more Key for your team, you have {Keys} Keys")
         else:
             print(f"No keys for you this time, you have {Keys} Keys")
+        time.sleep(1,5)
+
 
     
     #final stage
