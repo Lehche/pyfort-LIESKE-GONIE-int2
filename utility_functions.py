@@ -126,14 +126,14 @@ def choose_player(team): #display a menu of all the players in the team to choos
 import os
 
 def save_game(team, keys, tries, attempts):
-    # Chemin vers le fichier save.txt dans le dossier data
+    # Path to save.txt in the data folder
     save_path = os.path.join("data", "save.txt")
 
-    # Vérifier si le dossier data existe, sinon le créer
+    # Check if the data folder exists, create if not
     if not os.path.exists("data"):
         os.makedirs("data")
 
-    # Ouvrir le fichier save.txt en mode ajout
+    # Open save.txt in append mode
     with open(save_path, "a", encoding="utf-8") as file:
         file.write("\n=== Nouvelle Partie ===\n")
 
@@ -144,17 +144,18 @@ def save_game(team, keys, tries, attempts):
 
         file.write("\n--- Challenges ---\n")
         file.write("Played Challenges:\n")
-        for i, value in enumerate(tries):
+        for challenge, value in tries.items():
             if value > 0:
-                file.write(f"  - Défi {i + 1}\n")
+                file.write(f"  - {challenge} ({value} times)\n")
         file.write("Not Played Challenges:\n")
-        for i, value in enumerate(tries):
+        for challenge, value in tries.items():
             if value == 0:
-                file.write(f"  - Défi {i + 1}\n")
+                file.write(f"  - {challenge}\n")
 
         file.write("\n--- Game Progress ---\n")
         file.write(f"Total Keys Obtained : {keys}\n")
         file.write(f"Total Challenges Won : {keys}\n")
         file.write(f"Total Challenges Lost : {attempts - keys}\n")
         file.write("\n--- End of Game ---\n")
+
 
