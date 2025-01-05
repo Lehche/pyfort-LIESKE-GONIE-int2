@@ -1,13 +1,14 @@
+#file were all the function related to the final challenge are
 import json
 import random
 
-def load_clues(file):
+def load_clues(file): #load the clues from the json file (retun them)
     with open(file, "r") as f:
         clues = json.load(f)
     return clues
 
-def treasure_room(file):
-
+def treasure_room(file): #main game function, run the game
+    #initialisation
     tv_game = load_clues(file)
     year = random.choice(list(tv_game["Fort Boyard"].keys()))
     show = random.choice(list(tv_game["Fort Boyard"][year].keys()))
@@ -15,10 +16,10 @@ def treasure_room(file):
     code_word = tv_game["Fort Boyard"][year][show]["CODE-WORD"]
 
     print("Clues:", clues[:3])
-
     attempts = 3
     answer_correct = False
 
+    #game loop
     while attempts > 0:
         player_answer = input(f"Guess the code word (Attempts left: {attempts}): ").strip().upper()
 
@@ -38,4 +39,3 @@ def treasure_room(file):
         print("Congratulations! You guessed the code word correctly.")
         return True
         #felindra tete de tigre
-
