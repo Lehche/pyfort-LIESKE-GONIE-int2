@@ -1,3 +1,4 @@
+#maths challenge file, every function about any maths challenge is here
 import random
 import time
 
