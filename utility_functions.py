@@ -1,5 +1,6 @@
 #some utility functions used in main.py file
 #introduction(), compose_equipe(), challenge_menu(), choose_player()
+import os
 
 def introduction(): #print a welcoming message and the rules (take no imput, return no imput)
     print("Greeting adventurer here is the start of your glorious adventure !")
@@ -122,4 +123,34 @@ def choose_player(team): #display a menu of all the players in the team to choos
     return(playernumber -1) #ndt the -1 is beacause python doesnt know how to count
 
 
+def save_game(ListOfPlayers,Keys,Tries,attempts):
+
+    if not os.path.exists(os.path.DATA/Games history.txt:(progress_file)):
+        os.makedirs(os.path.DATA/Games history.txt:(progress_file))
+
+    with open(progress_file, "a", encoding="utf-8") as file:
+        file.write("\n=== Team Information ===\n")
+        for i, ListOfPlayers in enumerate(team, start=1):
+            leader_status = " (Leader)" if ListOfPlayers.get("leader", False) else ""
+            file.write(f"{i}. {ListOfPlayers['name']} ({ListOfPlayers['profession']}){leader_status}\n")
+        file.write("\n")
+
+        # Append challenges information
+        played_indexes = [idx for idx, value in Tries() if value > 0]
+        not_played_indexes = [idx for idx, value in Tries() if value == 0]
+        file.write("=== Challenges ===\n")
+        file.write("Played Challenges:\n")
+        for challenges in played_indexes:
+            file.write(f"  -{challenges}\n")
+        file.write("\nNot Played Challenges:\n")
+        for challenges in not_played_indexes:
+            file.write(f"  -{challenges}\n")
+        file.write("\n")
+
+        # Append game progress
+        file.write("=== Game Progress ===\n")
+        file.write(f"Total Keys Obtained: {Keys}\n")
+        file.write(f"Total Challenges Won: {Keys}\n")
+        file.write(f"Total Challenges Lost: {attempts-Keys}\n")
+        file.write("\n--- End of Game ---\n")
 
