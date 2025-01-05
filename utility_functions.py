@@ -121,6 +121,8 @@ def choose_player(team): #display a menu of all the players in the team to choos
 
     return(playernumber -1) #ndt the -1 is beacause python doesnt know how to count
 
+import os
+
 def save_game_progress_to_text(progress_file="output/progress.txt"):
 
     keys = 0
