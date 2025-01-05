@@ -14,40 +14,45 @@ Each challenge has mutliple game and a one of each game is chosen when you start
 <br />
 These are the funtions for the random game : <br />
 <br />
-  shell_game()<br />
-  roll_dice_game()<br />
-  chance_challenge()<br />
+  -shell_game()<br />
+  -roll_dice_game()<br />
+  -chance_challenge()<br />
 <br />
 These are the funtions for the battle ship game : <br />
 <br />
-  next_player(player)<br />
-  empty_grid()<br />
-  display_grid(grid, message)<br />
-  ask_position()<br />
-  initialize()<br />
-  turn(player, player_shots_grid, opponent_grid, playerturn)<br />
-  has_won(player_shots_grid)<br />
-  battleship_game()<br />
+  -next_player(player)<br />
+  -empty_grid()<br />
+  -display_grid(grid, message)<br />
+  -ask_position()<br />
+  -initialize()<br />
+  -turn(player, player_shots_grid, opponent_grid, playerturn)<br />
+  -has_won(player_shots_grid)<br />
+  -battleship_game()<br />
 <br />
 These are the funtions for the maths game : <br />
 <br />
-  factorial(n)<br />
-  math_challenge_factorial()<br />
-  is_prime(n)<br />
-  nearest_prime(n)<br />
-  math_challenge_prime()<br />
-  math_roulette_challenge()<br />
-  math_challenge()<br />
-
+  -factorial(n)<br />
+  -math_challenge_factorial()<br />
+  -is_prime(n)<br />
+  -nearest_prime(n)<br />
+  -math_challenge_prime()<br />
+  -math_roulette_challenge()<br />
+  -math_challenge()<br />
+<br />
 These are the funtions for the Pere Fouras riddles : <br />
 <br />
-  load_riddles(file)<br />
-  pere_fouras_gateux()<br />
-  pere_fouras_riddles(file)<br />
-
-introduction()
-compose_equipe()
-challenges_menu()
-choose_player(team)
-
-game()
+  -load_riddles(file)<br />
+  -pere_fouras_gateux()<br />
+  -pere_fouras_riddles(file)<br />
+<br />
+These are the function of utilie, they help the players register and play:<br />
+<br />
+  -introduction()<br />
+  -compose_equipe()<br />
+  -challenges_menu()<br />
+  -choose_player(team)<br />
+<br />
+This is the function that launches the game:<br />
+<br />
+  -game()
+<br />
