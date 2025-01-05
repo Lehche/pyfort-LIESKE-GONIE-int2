@@ -10,10 +10,10 @@ def load_riddles(file): #this loads the json file with the clues and riddles and
     return riddles
 
 
-def pere_fouras_gateux(): #this is the game 
+def pere_fouras_gateux(): # this a bonus, you have a 1 in 10 chances that the Pere fouras is to old and confused, so he panic at you and throws the key at your face and tou win 
 
     x = random.randint(1,10)
-    if x == 6 : # this a bonus, you have a 1 in 10 chances that the Pere fouras is to old and confused, so he panic at you and throws the key at your face and tou win 
+    if x == 6 : 
         print("uhhhh ?")
         time.sleep(1)
         print("hmmmm", end=", ")
@@ -32,7 +32,7 @@ def pere_fouras_gateux(): #this is the game
         return False
 
 
-def pere_fouras_riddles(file):
+def pere_fouras_riddles(file): #this is the game 
 
     #initialisation
     attempts = 3
