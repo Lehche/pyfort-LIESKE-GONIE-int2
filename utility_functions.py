@@ -123,34 +123,39 @@ def choose_player(team): #display a menu of all the players in the team to choos
     return(playernumber -1) #ndt the -1 is beacause python doesnt know how to count
 
 
-def save_game(ListOfPlayers,Keys,Tries,attempts):
+import os
 
-    if not os.path.exists(os.path.DATA/Games history.txt:(progress_file)):
-        os.makedirs(os.path.DATA/Games history.txt:(progress_file))
+def save_game(team, keys, tries, attempts):
+    # Chemin vers le fichier save.txt dans le dossier data
+    save_path = os.path.join("data", "save.txt")
 
-    with open(progress_file, "a", encoding="utf-8") as file:
-        file.write("\n=== Team Information ===\n")
-        for i, ListOfPlayers in enumerate(team, start=1):
-            leader_status = " (Leader)" if ListOfPlayers.get("leader", False) else ""
-            file.write(f"{i}. {ListOfPlayers['name']} ({ListOfPlayers['profession']}){leader_status}\n")
-        file.write("\n")
+    # Vérifier si le dossier data existe, sinon le créer
+    if not os.path.exists("data"):
+        os.makedirs("data")
 
-        # Append challenges information
-        played_indexes = [idx for idx, value in Tries() if value > 0]
-        not_played_indexes = [idx for idx, value in Tries() if value == 0]
-        file.write("=== Challenges ===\n")
-        file.write("Played Challenges:\n")
-        for challenges in played_indexes:
-            file.write(f"  -{challenges}\n")
-        file.write("\nNot Played Challenges:\n")
-        for challenges in not_played_indexes:
-            file.write(f"  -{challenges}\n")
-        file.write("\n")
+    # Ouvrir le fichier save.txt en mode ajout
+    with open(save_path, "a", encoding="utf-8") as file:
+        file.write("\n=== Nouvelle Partie ===\n")
 
-        # Append game progress
-        file.write("=== Game Progress ===\n")
-        file.write(f"Total Keys Obtained: {Keys}\n")
-        file.write(f"Total Challenges Won: {Keys}\n")
-        file.write(f"Total Challenges Lost: {attempts-Keys}\n")
-        file.write("\n--- End of Game ---\n")
+        file.write("\n--- Équipe ---\n")
+        for i, player in enumerate(team, start=1):
+            leader_status = " (Chef)" if player.get("leader", False) else ""
+            file.write(f"{i}. {player['name']} - {player['profession']}{leader_status}\n")
+
+        file.write("\n--- Défis ---\n")
+        file.write("Défis joués :\n")
+        for i, value in enumerate(tries):
+            if value > 0:
+                file.write(f"  - Défi {i + 1}\n")
+        file.write("Défis non joués :\n")
+        for i, value in enumerate(tries):
+            if value == 0:
+                file.write(f"  - Défi {i + 1}\n")
+
+        file.write("\n--- Progression ---\n")
+        file.write(f"Clés obtenues : {keys}\n")
+        file.write(f"Défis gagnés : {keys}\n")
+        file.write(f"Défis perdus : {attempts - keys}\n")
+        file.write("\n--- Fin de la partie ---\n")
+
 
