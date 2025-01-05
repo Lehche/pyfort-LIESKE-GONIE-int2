@@ -1,3 +1,4 @@
+#this is the logical challenge file everything about the battle ship game is here
 import random
 
 def next_player(player): #switch to the next player (imput : current turn[1/0]) return the next player index[1/0]
