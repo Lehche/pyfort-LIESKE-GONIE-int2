@@ -1,18 +1,22 @@
+#file were all the functions related to the chance challenges are
 import random
 import time
 
-def shell_game():
+def shell_game(): #shell game function,run the game (no input) (output : True/False) 
+    #welcoming message
     print("Welcome to the Shell Game!")
     print("Guess which shell (A, B, or C) hides the key.")
 
+    #initatialisation
     shells = ['A', 'B', 'C']
     attempts = 2
 
+    #game loop
     for attempt in range(attempts):
         key_position = random.choice(shells)
         guess = input(f"Attempt {attempt}/{attempts}: Choose a shell (A, B, or C): ").upper()
 
-        if guess not in shells:
+        if guess not in shells: #case of wrong inputs
             print("Invalid choice. Please select A, B, or C.")
             continue
 
@@ -31,18 +35,21 @@ def shell_game():
                 time.sleep(1)
                 print("Try again!")
                 
-def roll_dice_game():
+def roll_dice_game(): #roll dice game function, no input, run the game (output : True/False)
+    #initialisation
     attempts= 3
 
+    #game loop
     for attempt in range(attempts):
+        #user input part : 
         print(f"Attempt {attempt}/{attempts}")
-
         input("Press 'Enter' to roll the dice.")
         player = (random.randint(1, 6), random.randint(1, 6))
         print("You've rolled:... ")
         time.sleep(1)
         print(player)
 
+        #game part (computing informations)
         if 6 in player:
             print("Congratulations! You have won the game and found the key.")
             return True
@@ -61,7 +68,7 @@ def roll_dice_game():
 
     print("No player scored a 6 after three tries. It's a draw.")
 
-def chance_challenge():
+def chance_challenge(): #select and launch randomly one of the 2 challenges 
     challenges = [shell_game, roll_dice_game]
     challenge = random.choice(challenges)
     return challenge()
