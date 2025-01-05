@@ -2,11 +2,11 @@
 <br />
 Gaspard LIESKE, Louis GONIE
 <br />
-This goal of this project is to create a game on python based on the tv game "Fort Boyard", to help us we have been provided with a document with instrunction to follow.
+This goal of this project is to create a game on python based on the tv game "Fort Boyard", to help us we have been provided with a document with instrunction to follow.<br />
 <br />
-To launch the game you need to go on git hub pull and run main file
+To launch the game you need to go on git hub pull and run main file<br />
 <br />
-The game function with a series of sub game you must win a certain nuber of them in onder to try the final challenge and win the game, the sub games are:
+The game function with a series of sub game you must win a certain nuber of them in onder to try the final challenge and win the game, the sub games are:<br />
 <br />
   -Maths challenges, Logical challenges, Chance challenges, Pere Fouras riddles and the Final challenge
 <br />
