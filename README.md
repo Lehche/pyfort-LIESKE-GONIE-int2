@@ -8,19 +8,19 @@ The game function with a series of sub game you must win a certain nuber of them
 Each challenge has mutliple game and a one of each game is chosen when you start a challenge, these are the function:
 
 These are the funtions for the random game : 
-  shell_game()__
-  roll_dice_game()__
-  chance_challenge()__
+  shell_game()<br />
+  roll_dice_game()<br />
+  chance_challenge()<br />
 
 These are the funtions for the battle ship game : 
-  next_player(player)__
-  empty_grid()__
-  display_grid(grid, message)__
-  ask_position()__
-  initialize()__
-  turn(player, player_shots_grid, opponent_grid, playerturn)__
-  has_won(player_shots_grid)__
-  battleship_game()__
+  next_player(player)<br />
+  empty_grid()<br />
+  display_grid(grid, message)<br />
+  ask_position()<br />
+  initialize()<br />
+  turn(player, player_shots_grid, opponent_grid, playerturn)<br />
+  has_won(player_shots_grid)<br />
+  battleship_game()<br />
 
 factorial(n)
 math_challenge_factorial()
