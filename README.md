@@ -5,8 +5,9 @@ Gaspard LIESKE, Louis GONIE<br />
 This goal of this project is to create a game on python based on the tv game "Fort Boyard", to help us we have been provided with a document with instrunction to follow.<br />
 <br />
 This project was made using only python. Multiplle libraries were used: <br />
-  math, random, os : for the games<br />
+  math, random : for the games<br />
   time : for visual effects<br />
+  json, os : to pull data from elsewhere<br />
   
 <br />
 To launch the game you need to go on git hub pull and run main file<br />
